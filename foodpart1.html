@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <link
+      rel="stylesheet"
+      href="C:\Users\Subaharini\OneDrive\Desktop\clg lab\foodpart2.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const registrationForm = document.getElementById("registrationForm");
+
+        registrationForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const usernameError = document.getElementById("name-error");
+          const emailError = document.getElementById("email-error");
+          const passwordError = document.getElementById("password-error");
+          const confirmpasswordError = document.getElementById(
+            "confirmpassword-error"
+          );
+
+          usernameError.textContent = "";
+          emailError.textContent = "";
+          passwordError.textContent = "";
+          confirmpasswordError.textContent = "";
+
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmpassword =
+            document.getElementById("confirmpassword").value;
+          let isValid = true;
+
+          if (username === "" || /\d/.test(username)) {
+            usernameError.textContent = "Please enter your name properly.";
+            isValid = false;
+          }
+
+          if (email === "" || !email.includes("@")) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+          }
+
+          if (password === "" || password.length < 6) {
+            passwordError.textContent =
+              "Please enter a password with at least 6 characters.";
+            isValid = false;
+          }
+
+          if (confirmpassword === "") {
+            confirmpasswordError.textContent =
+              "Please enter the confirmation password.";
+            isValid = false;
+          }
+
+          if (confirmpassword !== password) {
+            confirmpasswordError.textContent = "The passwords do not match.";
+            isValid = false;
+          }
+
+          if (isValid) {
+            console.log("Form submitted successfully!");
+            // Optionally, you can submit the form data here or handle it as needed
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <form id="registrationForm">
+        <h1>Registration form</h1>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter the username"
+        />
+        <div id="name-error" style="color: red"></div>
+        <br />
+
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter the email "
+        />
+        <div id="email-error" style="color: red"></div>
+        <br />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter the password"
+        />
+        <div id="password-error" style="color: red"></div>
+        <br />
+
+        <label for="confirmpassword">Confirm-password:</label>
+        <input
+          type="password"
+          id="confirmpassword"
+          name="confirmpassword"
+          placeholder="Re-enter the password"
+        />
+        <div id="confirmpassword-error" style="color: red"></div>
+        <br />
+        <button type="submit">
+          <a
+            href=" C:\Users\Subaharini\OneDrive\Desktop\clg lab\fpl.html"
+            class="button"
+          >
+            REGISTER</a
+          >
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

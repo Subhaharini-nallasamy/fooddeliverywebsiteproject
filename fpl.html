@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .rose {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 300px;
+      }
+      .rose h1 {
+        color: #4caf50;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+      }
+      .error {
+        color: red;
+        font-size: 0.9em;
+        margin-top: -10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rose">
+      <form id="loginForm">
+        <h1>Log in</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <div id="username-error" class="error"></div>
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <div id="password-error" class="error"></div>
+        <br />
+        <button type="submit">
+          <a href="C:\Users\Subaharini\OneDrive\Desktop\clg lab\food1.html "
+            >LOG IN</a
+          >
+        </button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get form elements
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const usernameError = document.getElementById("username-error");
+          const passwordError = document.getElementById("password-error");
+
+          // Clear previous error messages
+          usernameError.textContent = "";
+          passwordError.textContent = "";
+
+          // Validation flags
+          let isValid = true;
+
+          // Validate username
+          if (username.trim() === "") {
+            usernameError.textContent = "Username is required.";
+            isValid = false;
+          }
+
+          // Validate password
+          if (password.trim() === "") {
+            passwordError.textContent = "Password is required.";
+            isValid = false;
+          }
+
+          // Simulate login success if form is valid
+          if (isValid) {
+            console.log("Login successful!");
+            // You can add further processing here, such as sending the data to a server
+            // For example: form.submit(); or AJAX request
+          }
+        });
+    </script>
+  </body>
+</html>
